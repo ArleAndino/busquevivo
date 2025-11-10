@@ -40,11 +40,12 @@ const ForestMap = dynamic(
           default: return '#2196f3';
         }
       };
+       
 
       // Acción al crear solicitud
       const handleCreateSolicitud = (id) => {
         const alerta = alerts.find((a) => a.properties.id === id);
-        if (!alerta) return;
+        if (!alerta) return;  
 
         // Crear nueva solicitud simulada
         const nuevaSolicitud = {
