@@ -4,7 +4,6 @@ import {
   Box,
   Typography,
   Card,
-  CardContent,
   Table,
   TableBody,
   TableCell,
@@ -16,7 +15,8 @@ import {
   TextField,
   Button,
 } from '@mui/material';
-import { Download, Refresh } from 'lucide-react';
+import DownloadIcon from '@mui/icons-material/Download';
+import RefreshIcon from '@mui/icons-material/Refresh';
 
 export default function SolicitudesPage() {
   const [solicitudes, setSolicitudes] = useState([]);
@@ -31,10 +31,14 @@ export default function SolicitudesPage() {
 
   const getColorByEstado = (estado) => {
     switch (estado) {
-      case 'EN PROCESO': return 'warning';
-      case 'VALIDADA': return 'success';
-      case 'RECHAZADA': return 'error';
-      default: return 'default';
+      case 'EN PROCESO':
+        return 'warning';
+      case 'VALIDADA':
+        return 'success';
+      case 'RECHAZADA':
+        return 'error';
+      default:
+        return 'default';
     }
   };
 
@@ -64,7 +68,7 @@ export default function SolicitudesPage() {
           <Button
             variant="contained"
             color="success"
-            startIcon={<Refresh size={18} />}
+            startIcon={<RefreshIcon />}
             onClick={() => window.location.reload()}
           >
             Actualizar
@@ -72,7 +76,7 @@ export default function SolicitudesPage() {
           <Button
             variant="outlined"
             color="primary"
-            startIcon={<Download size={18} />}
+            startIcon={<DownloadIcon />}
             onClick={() => alert('📤 Exportación simulada')}
           >
             Exportar
@@ -110,7 +114,9 @@ export default function SolicitudesPage() {
             {solicitudesFiltradas.length === 0 && (
               <TableRow>
                 <TableCell colSpan={7} align="center" sx={{ py: 3 }}>
-                  <Typography color="text.secondary">No hay solicitudes registradas</Typography>
+                  <Typography color="text.secondary">
+                    No hay solicitudes registradas
+                  </Typography>
                 </TableCell>
               </TableRow>
             )}

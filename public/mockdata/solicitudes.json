@@ -1,0 +1,46 @@
+[
+  {
+    "id": "SOL-001",
+    "fecha": "2025-11-09",
+    "alertaId": "AL-001",
+    "area": "La Mosquitia",
+    "hectareas": 14.6,
+    "confianza": 0.92,
+    "estado": "EN PROCESO",
+    "descripcion": "Solicitud generada automáticamente por alerta confirmada de tala selectiva en La Mosquitia. En espera de validación por ICF.",
+    "responsable": "Técnico Forestal Regional 01"
+  },
+  {
+    "id": "SOL-002",
+    "fecha": "2025-11-09",
+    "alertaId": "AL-002",
+    "area": "Olancho",
+    "hectareas": 7.4,
+    "confianza": 0.80,
+    "estado": "VALIDADA",
+    "descripcion": "Caso validado en campo. Se identificó área intervenida sin permisos. Notificación enviada al departamento legal.",
+    "responsable": "Inspector Ambiental 03"
+  },
+  {
+    "id": "SOL-003",
+    "fecha": "2025-11-08",
+    "alertaId": "AL-003",
+    "area": "Yoro",
+    "hectareas": 9.8,
+    "confianza": 0.86,
+    "estado": "RECHAZADA",
+    "descripcion": "Alerta descartada tras verificación satelital. Se trataba de quema controlada autorizada.",
+    "responsable": "Supervisor de Monitoreo Central"
+  },
+  {
+    "id": "SOL-004",
+    "fecha": "2025-11-07",
+    "alertaId": "AL-004",
+    "area": "Colón",
+    "hectareas": 5.2,
+    "confianza": 0.78,
+    "estado": "EN PROCESO",
+    "descripcion": "Posible tala ilegal reportada por modelo IA. En revisión preliminar por personal de campo.",
+    "responsable": "Oficina Regional Colón"
+  }
+]
