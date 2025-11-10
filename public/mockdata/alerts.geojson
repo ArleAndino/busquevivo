@@ -1,0 +1,61 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "AL-001",
+        "date": "2025-11-01",
+        "area": "La Mosquitia",
+        "hectares": 14.6,
+        "confidence": 0.92,
+        "status": "CONFIRMADA"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-84.35, 15.98],
+            [-84.36, 15.99],
+            [-84.34, 15.99],
+            [-84.35, 15.98]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "AL-002",
+        "date": "2025-11-02",
+        "area": "Olancho",
+        "hectares": 7.4,
+        "confidence": 0.80,
+        "status": "GENERADA"
+      },
+      "geometry": { "type": "Point", "coordinates": [-85.54, 14.64] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "AL-003",
+        "date": "2025-11-03",
+        "area": "Yoro",
+        "hectares": 9.8,
+        "confidence": 0.86,
+        "status": "DENUNCIADA"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-87.12, 15.27],
+            [-87.11, 15.28],
+            [-87.10, 15.26],
+            [-87.12, 15.27]
+          ]
+        ]
+      }
+    }
+  ]
+}

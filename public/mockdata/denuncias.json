@@ -1,0 +1,10 @@
+[
+  {
+    "id": "DEN-2001",
+    "caseId": "SOL-1001",
+    "alertId": "AL-001",
+    "fiscalAssigned": "FEMA_TGU",
+    "status": "EN_INVESTIGACION",
+    "openedAt": "2025-11-05"
+  }
+]

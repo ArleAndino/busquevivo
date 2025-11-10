@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "object": "AL-001",
+    "action": "Creación de alerta",
+    "user": "IA_CORE",
+    "date": "2025-11-01"
+  },
+  {
+    "id": 2,
+    "object": "SOL-1001",
+    "action": "Solicitud remitida a FEMA",
+    "user": "ICF_SUPERVISOR",
+    "date": "2025-11-04"
+  },
+  {
+    "id": 3,
+    "object": "DEN-2001",
+    "action": "Caso abierto en investigación",
+    "user": "FEMA",
+    "date": "2025-11-05"
+  }
+]

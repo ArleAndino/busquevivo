@@ -1,0 +1,20 @@
+[
+  {
+    "id": "SOL-1001",
+    "alertId": "AL-001",
+    "priority": "ALTA",
+    "description": "Claridad visible de tala selectiva en La Mosquitia.",
+    "status": "REMITIDA_FEMA",
+    "assignedTo": "ICF_SUPERVISOR",
+    "createdAt": "2025-11-03"
+  },
+  {
+    "id": "SOL-1002",
+    "alertId": "AL-002",
+    "priority": "MEDIA",
+    "description": "Posible actividad irregular en Olancho.",
+    "status": "EN_REVISION_ICF",
+    "assignedTo": "ICF_TECNICO",
+    "createdAt": "2025-11-04"
+  }
+]
