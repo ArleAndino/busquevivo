@@ -1,21 +1,78 @@
 'use client';
+
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
-import { Box, Button, Typography, Select, MenuItem, Paper, InputLabel, FormControl } from '@mui/material';
+import { useState, useEffect } from 'react';
+import { Box, Button, Typography, Paper, TextField } from '@mui/material';
 
 export default function Home() {
   const router = useRouter();
-  const [role, setRole] = useState('');
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
+  // Usuarios institucionales en duro
+  const institutionalUsers = [
+    { email: "icf.tecnico@icf.gob.hn", password: "123456", role: "ICF_TECNICO", name: "Técnico ICF" },
+    { email: "icf.supervisor@icf.gob.hn", password: "123456", role: "ICF_SUPERVISOR", name: "Supervisor ICF" },
+    { email: "fema@mp.hn", password: "123456", role: "FEMA", name: "Fiscal Ambiental" },
+    { email: "serna@gob.hn", password: "123456", role: "SERNA", name: "SERNA / Gobierno Digital" },
+    { email: "admin@icf.hn", password: "admin123", role: "ADMIN", name: "Administrador del Sistema" },
+     {
+        name: "Juan Pérez",
+        email: "ciudadano@demo.hn",
+        password: "12345",
+        role: "CIUDADANO"
+      },
+  ];
+
+  // Si ya está logeado → enviarlo a /inicio
+  useEffect(() => {
+    const user = localStorage.getItem('bosqueUser');
+    if (user) router.push('/inicio');
+  }, []);
+
   const handleLogin = () => {
-    if (!role) {
-      setError('Por favor selecciona un rol para continuar.');
+
+    if (!email || !password) {
+      setError("Ingrese sus credenciales.");
       return;
     }
-    // Simulamos guardar el rol en sessionStorage
-    sessionStorage.setItem('userRole', role);
-    router.push('/dashboard');
+
+    // 1️⃣ Validar institucionales
+    const foundInstitutional = institutionalUsers.find(
+      (u) => u.email === email && u.password === password
+    );
+
+    if (foundInstitutional) {
+      localStorage.setItem("bosqueUser", JSON.stringify(foundInstitutional));
+      router.push("/inicio");
+      return;
+    }
+
+    // 2️⃣ Validar ciudadano (registrado previamente)
+    const stored = localStorage.getItem("bosqueUserRegistered");
+
+    if (stored) {
+      const citizen = JSON.parse(stored);
+
+      if (citizen.email === email && citizen.password === password) {
+        localStorage.setItem(
+          "bosqueUser",
+          JSON.stringify({
+            name: citizen.name,
+            email: citizen.email,
+            role: "CIUDADANO",
+          })
+        );
+
+        router.push("/inicio");
+        return;
+      }
+    }
+
+    // 3️⃣ Si ninguna coincidió
+    setError("Credenciales inválidas o usuario no registrado.");
   };
 
   return (
@@ -25,43 +82,57 @@ export default function Home() {
         alignItems: 'center',
         justifyContent: 'center',
         minHeight: '100vh',
-        background: 'linear-gradient(120deg, #1b5e20, #4caf50)',
+        background: 'linear-gradient(120deg, #63BBD3, #63BBD3)',
       }}
     >
-      <Paper elevation={6} sx={{ p: 6, width: 400, textAlign: 'center', borderRadius: 4 }}>
-        <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold', color: '#1b5e20' }}>
+      <Paper elevation={6} sx={{ p: 6, width: 420, textAlign: 'center', borderRadius: 4 }}>
+        
+        <Typography variant="h4" gutterBottom sx={{ fontWeight: 'bold', color: '#63BBD3' }}>
           🌿 Bosque Vivo HN
         </Typography>
+
         <Typography variant="subtitle1" gutterBottom>
-          Sistema de Monitoreo y Denuncia Ambiental
+          Plataforma de Permisos y Supervisión Forestal
         </Typography>
 
-        <FormControl fullWidth sx={{ mt: 3 }}>
-          <InputLabel id="role-label">Selecciona tu rol</InputLabel>
-          <Select
-            labelId="role-label"
-            value={role}
-            label="Selecciona tu rol"
-            onChange={(e) => setRole(e.target.value)}
-          >
-            <MenuItem value="ICF_TECNICO">ICF Técnico</MenuItem>
-            <MenuItem value="ICF_SUPERVISOR">ICF Supervisor</MenuItem>
-            <MenuItem value="FEMA">Fiscalía Ambiental (FEMA)</MenuItem>
-            <MenuItem value="SERNA">SERNA / Gobierno Digital</MenuItem>
-          </Select>
-        </FormControl>
+        <TextField
+          fullWidth
+          label="Correo electrónico"
+          variant="outlined"
+          sx={{ mt: 3 }}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
-        {error && <Typography sx={{ mt: 2, color: 'red' }}>{error}</Typography>}
+        <TextField
+          fullWidth
+          label="Contraseña"
+          type="password"
+          variant="outlined"
+          sx={{ mt: 2 }}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
+        {error && (
+          <Typography sx={{ mt: 2, color: 'red', fontWeight: 'bold' }}>
+            {error}
+          </Typography>
+        )}
+
+        <Button fullWidth variant="contained" color="success" sx={{ mt: 3 }} onClick={handleLogin}>
+          Ingresar
+        </Button>
 
         <Button
           fullWidth
-          variant="contained"
-          color="success"
-          sx={{ mt: 3 }}
-          onClick={handleLogin}
+          variant="text"
+          sx={{ mt: 2, textDecoration: 'underline', fontWeight: 'bold' }}
+          onClick={() => router.push('/registro')}
         >
-          Ingresar
+          Crear cuenta nueva (Ciudadano)
         </Button>
+
       </Paper>
     </Box>
   );

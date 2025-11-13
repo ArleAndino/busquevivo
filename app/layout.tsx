@@ -14,7 +14,8 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="es">
-      <body>
+        <body suppressHydrationWarning={true}>
+
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
