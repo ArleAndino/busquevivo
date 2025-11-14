@@ -12,7 +12,7 @@ export default function MisSolicitudes() {
 
     const propias = all.filter(s => s.ciudadano === user);
     setData(propias);
-  }, []);
+  }, []); 
 
   return (
     <Box sx={{ p: 3 }}>
