@@ -28,7 +28,7 @@ export default function LayoutMenu() {
 
     ICF_TECNICO: [
       { name: "Inicio", path: "/inicio" },
-      { name: "Solicitudes", path: "/solicitudes" },
+      { name: "Solicitudes", path: "/legal" },
       { name: "Mapa de Alertas", path: "/mapa" }
     ],
 
@@ -39,11 +39,24 @@ export default function LayoutMenu() {
       { name: "Alertas", path: "/mapa" }
     ],
 
+    ICF_TECNICO_GEO: [
+      { name: "Inicio", path: "/inicio" },
+      { name: "Revisión geográfica", path: "/geografico" },      // listado geográfico
+      { name: "Mapa de Alertas", path: "/mapa" },
+      { name: "Solicitudes", path: "/solicitudes" }              // opcional
+    ],
+
     FEMA: [
       { name: "Inicio", path: "/inicio" },
       { name: "Denuncias", path: "/denuncias" },
       { name: "Mapa de Alertas", path: "/mapa" }
-    ]
+    ],
+    ICF_MANEJO: [
+  { name: "Inicio", path: "/inicio" },
+  { name: "Planes de Manejo", path: "/manejo" },      // listado que hicimos
+  
+  { name: "Mapa de Alertas", path: "/mapa" }          // opcional
+],
   };
 
   const items = menuPorRol[user.role] || [];

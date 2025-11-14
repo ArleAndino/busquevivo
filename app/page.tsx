@@ -24,6 +24,16 @@ export default function Home() {
         password: "12345",
         role: "CIUDADANO"
       },
+       {
+    name: "Técnico Geográfico ICF",
+    email: "icf.geo@icf.gob.hn",
+    role: "ICF_TECNICO_GEO" ,password: "123456",  // 👈 debe coincidir con el menú
+  },
+  {
+  name: "Técnico de Manejo ICF",
+  email: "manejo@icf.gob.hn",
+  role: "ICF_MANEJO",password: "123456",  // 👈 debe coincidir con el menú
+}
   ];
 
   // Si ya está logeado → enviarlo a /inicio
