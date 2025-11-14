@@ -67,7 +67,15 @@ export default function SolicitarPermiso() {
       documentos: docs,
       fecha: new Date().toISOString().split('T')[0],
       estado: "ENVIADA",
-      ciudadano: user.email
+      ciudadano: user.email,
+       track: [
+    {
+      fecha: new Date().toISOString(),
+      estado: "ENVIADA",
+      observacion: "Solicitud creada por el ciudadano",
+      usuario: user.email
+    }
+  ]
     };
 
     stored.push(nueva);

@@ -28,7 +28,7 @@ export default function LayoutMenu() {
 
     ICF_TECNICO: [
       { name: "Inicio", path: "/inicio" },
-      { name: "Solicitudes", path: "/solicitudes" },
+      { name: "Solicitudes", path: "/legal" },
       { name: "Mapa de Alertas", path: "/mapa" }
     ],
 
